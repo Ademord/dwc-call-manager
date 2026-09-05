@@ -1,0 +1,125 @@
+{
+  "evaluationCases": [
+    {
+      "name": "Order without DWC details",
+      "kind": "submit",
+      "valid": true,
+      "value": {
+        "catalogVersion": 1,
+        "reason": "order",
+        "device": null,
+        "fault": null,
+        "resolution": null
+      }
+    },
+    {
+      "name": "Explicit DWC uncertainty is complete",
+      "kind": "submit",
+      "valid": true,
+      "value": {
+        "catalogVersion": 1,
+        "reason": "dwc_problem",
+        "device": "unknown",
+        "fault": "unknown",
+        "resolution": "unknown"
+      }
+    },
+    {
+      "name": "Missing DWC fault rejected",
+      "kind": "submit",
+      "valid": false,
+      "value": {
+        "catalogVersion": 1,
+        "reason": "dwc_problem",
+        "device": "unknown",
+        "fault": null,
+        "resolution": "unknown"
+      }
+    },
+    {
+      "name": "Non-DWC hidden detail rejected",
+      "kind": "submit",
+      "valid": false,
+      "value": {
+        "catalogVersion": 1,
+        "reason": "order",
+        "device": "unknown",
+        "fault": null,
+        "resolution": null
+      }
+    },
+    {
+      "name": "Unknown reason rejected",
+      "kind": "submit",
+      "valid": false,
+      "value": {
+        "catalogVersion": 1,
+        "reason": "invented",
+        "device": null,
+        "fault": null,
+        "resolution": null
+      }
+    },
+    {
+      "name": "Wrong catalog version rejected",
+      "kind": "submit",
+      "valid": false,
+      "value": {
+        "catalogVersion": 2,
+        "reason": "order",
+        "device": null,
+        "fault": null,
+        "resolution": null
+      }
+    },
+    {
+      "name": "Partial DWC draft accepted",
+      "kind": "draft",
+      "valid": true,
+      "value": {
+        "catalogVersion": 1,
+        "reason": "dwc_problem",
+        "device": "unknown",
+        "fault": null,
+        "resolution": null
+      }
+    },
+    {
+      "name": "Empty draft accepted",
+      "kind": "draft",
+      "valid": true,
+      "value": {
+        "catalogVersion": 1,
+        "reason": null,
+        "device": null,
+        "fault": null,
+        "resolution": null
+      }
+    },
+    {
+      "name": "Unknown detail code rejected in draft",
+      "kind": "draft",
+      "valid": false,
+      "value": {
+        "catalogVersion": 1,
+        "reason": "dwc_problem",
+        "device": "invented",
+        "fault": "unknown",
+        "resolution": "unknown"
+      }
+    },
+    {
+      "name": "Client actor override rejected",
+      "kind": "submit",
+      "valid": false,
+      "value": {
+        "catalogVersion": 1,
+        "reason": "order",
+        "device": null,
+        "fault": null,
+        "resolution": null,
+        "actorId": "manager"
+      }
+    }
+  ]
+}

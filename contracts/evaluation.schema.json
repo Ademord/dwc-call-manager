@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SubmittedEvaluationV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "catalogVersion",
+    "reason",
+    "device",
+    "fault",
+    "resolution"
+  ],
+  "properties": {
+    "catalogVersion": {
+      "const": 1
+    },
+    "reason": {
+      "type": "string",
+      "enum": [
+        "order",
+        "invoice",
+        "dwc_problem",
+        "other"
+      ]
+    },
+    "device": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "tuma_classic_comfort",
+        "other",
+        "unknown",
+        null
+      ]
+    },
+    "fault": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "descaling_filter",
+        "shower_dryer_arm",
+        "remote_control",
+        "no_water",
+        "error_code",
+        "leak",
+        "seat_lid",
+        "other",
+        "unknown",
+        null
+      ]
+    },
+    "resolution": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "resolved_during_call",
+        "service_requested",
+        "follow_up_required",
+        "unresolved",
+        "unknown",
+        null
+      ]
+    }
+  },
+  "if": {
+    "properties": {
+      "reason": {
+        "const": "dwc_problem"
+      }
+    },
+    "required": [
+      "reason"
+    ]
+  },
+  "then": {
+    "properties": {
+      "device": {
+        "type": "string"
+      },
+      "fault": {
+        "type": "string"
+      },
+      "resolution": {
+        "type": "string"
+      }
+    }
+  },
+  "else": {
+    "properties": {
+      "device": {
+        "type": "null"
+      },
+      "fault": {
+        "type": "null"
+      },
+      "resolution": {
+        "type": "null"
+      }
+    }
+  }
+}

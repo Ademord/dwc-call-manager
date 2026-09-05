@@ -1,0 +1,9 @@
+{
+  "artifact": "index.html",
+  "sha256": "044455b6494acc91e9b244b5a3f5eb91a38cd179151f8600dc4f0e65219a0c8e",
+  "bytes": 336029,
+  "sourceEntry": "src/demo.tsx",
+  "bundledModules": 1579,
+  "networkDependencies": 0,
+  "scope": "synthetic portable prototype; in-memory data resets on reload"
+}

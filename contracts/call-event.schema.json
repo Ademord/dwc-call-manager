@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NormalizedConversationEndedV1",
+  "description": "Internal adapter output. This is not a native vendor webhook contract. Cross-field time/handled invariants are enforced by application validation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "type",
+    "provider",
+    "eventId",
+    "conversationId",
+    "direction",
+    "startedAt",
+    "answeredAt",
+    "endedAt",
+    "handled",
+    "externalAgentId"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "type": {
+      "const": "conversation.ended"
+    },
+    "provider": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "eventId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "conversationId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "direction": {
+      "enum": [
+        "inbound",
+        "outbound"
+      ]
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "answeredAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "endedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "handled": {
+      "type": "boolean"
+    },
+    "externalAgentId": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "maxLength": 200
+    }
+  },
+  "if": {
+    "properties": {
+      "handled": {
+        "const": true
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "answeredAt": {
+        "type": "string"
+      }
+    }
+  }
+}

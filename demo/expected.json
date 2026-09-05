@@ -1,0 +1,80 @@
+{
+  "description": "Mathematical fixture oracle, not a runtime service result. All reason shares include pending and use eligible ended calls.",
+  "baseline": {
+    "counts": {
+      "total": 12,
+      "submitted": 10,
+      "pending": 2,
+      "unassigned": 0,
+      "order": 4,
+      "invoice": 3,
+      "dwc_problem": 2,
+      "other": 1
+    },
+    "reasonDenominator": 12,
+    "reasonPercent": {
+      "order": 33.3,
+      "invoice": 25,
+      "dwc_problem": 16.7,
+      "other": 8.3,
+      "pending": 16.7
+    },
+    "dwcFaultDenominator": 2,
+    "dwcFaultCounts": {
+      "descaling_filter": 1,
+      "leak": 1
+    },
+    "deviceCounts": {
+      "tuma_classic_comfort": 2
+    },
+    "resolutionCounts": {
+      "service_requested": 1,
+      "resolved_during_call": 1
+    }
+  },
+  "afterGuidedSubmission": {
+    "counts": {
+      "total": 12,
+      "submitted": 11,
+      "pending": 1,
+      "unassigned": 0,
+      "order": 4,
+      "invoice": 3,
+      "dwc_problem": 3,
+      "other": 1
+    },
+    "reasonDenominator": 12,
+    "reasonPercent": {
+      "order": 33.3,
+      "invoice": 25,
+      "dwc_problem": 25,
+      "other": 8.3,
+      "pending": 8.3
+    },
+    "dwcFaultDenominator": 3,
+    "dwcFaultCounts": {
+      "descaling_filter": 2,
+      "leak": 1
+    },
+    "deviceCounts": {
+      "tuma_classic_comfort": 3
+    },
+    "resolutionCounts": {
+      "service_requested": 2,
+      "resolved_during_call": 1
+    }
+  },
+  "empty": {
+    "total": 0,
+    "reasonPercent": null,
+    "dwcFaultPercent": null
+  },
+  "properties": [
+    "Replaying demo-ended-11 adds no call.",
+    "Submitting guidedCallId under one idempotency key adds one revision.",
+    "A duplicate transport retry adds no revision.",
+    "Opening a correction draft does not change submitted counts.",
+    "The 2026-09-05 bucket exists with zero counts.",
+    "All main reason counts plus pending sum to total."
+  ]
+}

@@ -1,0 +1,106 @@
+/* Append to the application's stylesheet, or import beside HelpHint.tsx. */
+.help-hint {
+  display: inline-flex;
+  flex: 0 0 auto;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.help-hint__trigger {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--help-hint-color, #496181);
+  background: transparent;
+  cursor: help;
+  touch-action: manipulation;
+}
+
+.help-hint__trigger:hover,
+.help-hint__trigger[aria-describedby] {
+  border-color: #c4d2e9;
+  color: #1b4eaa;
+  background: #edf3fd;
+}
+
+.help-hint__trigger:focus-visible {
+  outline: 3px solid #85aff5;
+  outline-offset: 2px;
+}
+
+.help-hint__popup {
+  position: fixed;
+  inset: auto;
+  /* Display also provides a usable fixed-position fallback without Popover API. */
+  display: block;
+  z-index: 100;
+  box-sizing: border-box;
+  width: 20rem;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100dvh - 24px);
+  margin: 0;
+  padding: 12px 14px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+  border: 1px solid #c4d2e9;
+  border-radius: 10px;
+  color: #203650;
+  background: #fff;
+  box-shadow: 0 7px 24px #17243a24;
+  font-family: Inter, 'Segoe UI', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: normal;
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  animation: help-hint-appear 100ms ease-out;
+}
+
+.help-hint__popup[hidden] {
+  display: none;
+}
+
+.help-hint__popup::backdrop {
+  background: transparent;
+  pointer-events: none;
+}
+
+@keyframes help-hint-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .help-hint__trigger {
+    transition: none;
+  }
+  .help-hint__popup {
+    animation: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .help-hint__trigger {
+    color: ButtonText;
+  }
+  .help-hint__trigger:focus-visible {
+    outline-color: Highlight;
+  }
+  .help-hint__popup {
+    border-color: CanvasText;
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "fixedNow": "2026-09-05T10:00:00Z",
+  "timezone": "Europe/Zurich",
+  "reportRange": {
+    "from": "2026-09-01",
+    "until": "2026-09-06"
+  },
+  "actors": [
+    {
+      "id": "00000000-0000-4000-8000-000000001001",
+      "displayName": "Demo Agent",
+      "role": "agent",
+      "active": true
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000001002",
+      "displayName": "Demo Manager",
+      "role": "manager",
+      "active": true
+    }
+  ],
+  "providerAgentMappings": [
+    {
+      "provider": "demo",
+      "externalAgentId": "demo-agent-1",
+      "userId": "00000000-0000-4000-8000-000000001001"
+    }
+  ],
+  "calls": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "provider": "demo",
+      "conversationId": "demo-conversation-01",
+      "eventId": "demo-ended-01",
+      "displayRef": "DEMO-001",
+      "direction": "outbound",
+      "startedAt": "2026-09-01T08:00:00Z",
+      "answeredAt": "2026-09-01T08:00:10Z",
+      "endedAt": "2026-09-01T08:04:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 1,
+      "evaluation": {
+        "value": {
+          "catalogVersion": 1,
+          "reason": "order",
+          "device": null,
+          "fault": null,
+          "resolution": null
+        },
+        "revision": 1,
+        "submittedBy": "00000000-0000-4000-8000-000000001001",
+        "submittedAt": "2026-09-01T08:05:00Z"
+      },
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "provider": "demo",
+      "conversationId": "demo-conversation-02",
+      "eventId": "demo-ended-02",
+      "displayRef": "DEMO-002",
+      "direction": "inbound",
+      "startedAt": "2026-09-01T08:10:00Z",
+      "answeredAt": "2026-09-01T08:10:10Z",
+      "endedAt": "2026-09-01T08:14:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 1,
+      "evaluation": {
+        "value": {
+          "catalogVersion": 1,
+          "reason": "order",
+          "device": null,
+          "fault": null,
+          "resolution": null
+        },
+        "revision": 1,
+        "submittedBy": "00000000-0000-4000-8000-000000001001",
+        "submittedAt": "2026-09-01T08:15:00Z"
+      },
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000003",
+      "provider": "demo",
+      "conversationId": "demo-conversation-03",
+      "eventId": "demo-ended-03",
+      "displayRef": "DEMO-003",
+      "direction": "inbound",
+      "startedAt": "2026-09-01T08:20:00Z",
+      "answeredAt": "2026-09-01T08:20:10Z",
+      "endedAt": "2026-09-01T08:24:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 1,
+      "evaluation": {
+        "value": {
+          "catalogVersion": 1,
+          "reason": "order",
+          "device": null,
+          "fault": null,
+          "resolution": null
+        },
+        "revision": 1,
+        "submittedBy": "00000000-0000-4000-8000-000000001001",
+        "submittedAt": "2026-09-01T08:25:00Z"
+      },
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000004",
+      "provider": "demo",
+      "conversationId": "demo-conversation-04",
+      "eventId": "demo-ended-04",
+      "displayRef": "DEMO-004",
+      "direction": "outbound",
+      "startedAt": "2026-09-02T08:00:00Z",
+      "answeredAt": "2026-09-02T08:00:10Z",
+      "endedAt": "2026-09-02T08:04:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 1,
+      "evaluation": {
+        "value": {
+          "catalogVersion": 1,
+          "reason": "order",
+          "device": null,
+          "fault": null,
+          "resolution": null
+        },
+        "revision": 1,
+        "submittedBy": "00000000-0000-4000-8000-000000001001",
+        "submittedAt": "2026-09-02T08:05:00Z"
+      },
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000005",
+      "provider": "demo",
+      "conversationId": "demo-conversation-05",
+      "eventId": "demo-ended-05",
+      "displayRef": "DEMO-005",
+      "direction": "inbound",
+      "startedAt": "2026-09-02T08:10:00Z",
+      "answeredAt": "2026-09-02T08:10:10Z",
+      "endedAt": "2026-09-02T08:14:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 1,
+      "evaluation": {
+        "value": {
+          "catalogVersion": 1,
+          "reason": "invoice",
+          "device": null,
+          "fault": null,
+          "resolution": null
+        },
+        "revision": 1,
+        "submittedBy": "00000000-0000-4000-8000-000000001001",
+        "submittedAt": "2026-09-02T08:15:00Z"
+      },
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000006",
+      "provider": "demo",
+      "conversationId": "demo-conversation-06",
+      "eventId": "demo-ended-06",
+      "displayRef": "DEMO-006",
+      "direction": "inbound",
+      "startedAt": "2026-09-02T08:20:00Z",
+      "answeredAt": "2026-09-02T08:20:10Z",
+      "endedAt": "2026-09-02T08:24:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 1,
+      "evaluation": {
+        "value": {
+          "catalogVersion": 1,
+          "reason": "invoice",
+          "device": null,
+          "fault": null,
+          "resolution": null
+        },
+        "revision": 1,
+        "submittedBy": "00000000-0000-4000-8000-000000001001",
+        "submittedAt": "2026-09-02T08:25:00Z"
+      },
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000007",
+      "provider": "demo",
+      "conversationId": "demo-conversation-07",
+      "eventId": "demo-ended-07",
+      "displayRef": "DEMO-007",
+      "direction": "outbound",
+      "startedAt": "2026-09-03T08:00:00Z",
+      "answeredAt": "2026-09-03T08:00:10Z",
+      "endedAt": "2026-09-03T08:04:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 1,
+      "evaluation": {
+        "value": {
+          "catalogVersion": 1,
+          "reason": "invoice",
+          "device": null,
+          "fault": null,
+          "resolution": null
+        },
+        "revision": 1,
+        "submittedBy": "00000000-0000-4000-8000-000000001001",
+        "submittedAt": "2026-09-03T08:05:00Z"
+      },
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000008",
+      "provider": "demo",
+      "conversationId": "demo-conversation-08",
+      "eventId": "demo-ended-08",
+      "displayRef": "DEMO-008",
+      "direction": "inbound",
+      "startedAt": "2026-09-03T08:10:00Z",
+      "answeredAt": "2026-09-03T08:10:10Z",
+      "endedAt": "2026-09-03T08:14:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 1,
+      "evaluation": {
+        "value": {
+          "catalogVersion": 1,
+          "reason": "dwc_problem",
+          "device": "tuma_classic_comfort",
+          "fault": "descaling_filter",
+          "resolution": "resolved_during_call"
+        },
+        "revision": 1,
+        "submittedBy": "00000000-0000-4000-8000-000000001001",
+        "submittedAt": "2026-09-03T08:15:00Z"
+      },
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000009",
+      "provider": "demo",
+      "conversationId": "demo-conversation-09",
+      "eventId": "demo-ended-09",
+      "displayRef": "DEMO-009",
+      "direction": "inbound",
+      "startedAt": "2026-09-03T08:20:00Z",
+      "answeredAt": "2026-09-03T08:20:10Z",
+      "endedAt": "2026-09-03T08:24:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 1,
+      "evaluation": {
+        "value": {
+          "catalogVersion": 1,
+          "reason": "dwc_problem",
+          "device": "tuma_classic_comfort",
+          "fault": "leak",
+          "resolution": "service_requested"
+        },
+        "revision": 1,
+        "submittedBy": "00000000-0000-4000-8000-000000001001",
+        "submittedAt": "2026-09-03T08:25:00Z"
+      },
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000010",
+      "provider": "demo",
+      "conversationId": "demo-conversation-10",
+      "eventId": "demo-ended-10",
+      "displayRef": "DEMO-010",
+      "direction": "outbound",
+      "startedAt": "2026-09-04T08:00:00Z",
+      "answeredAt": "2026-09-04T08:00:10Z",
+      "endedAt": "2026-09-04T08:04:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 1,
+      "evaluation": {
+        "value": {
+          "catalogVersion": 1,
+          "reason": "other",
+          "device": null,
+          "fault": null,
+          "resolution": null
+        },
+        "revision": 1,
+        "submittedBy": "00000000-0000-4000-8000-000000001001",
+        "submittedAt": "2026-09-04T08:05:00Z"
+      },
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000011",
+      "provider": "demo",
+      "conversationId": "demo-conversation-11",
+      "eventId": "demo-ended-11",
+      "displayRef": "DEMO-011",
+      "direction": "inbound",
+      "startedAt": "2026-09-04T08:10:00Z",
+      "answeredAt": "2026-09-04T08:10:10Z",
+      "endedAt": "2026-09-04T08:14:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 0,
+      "evaluation": null,
+      "draft": null
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000012",
+      "provider": "demo",
+      "conversationId": "demo-conversation-12",
+      "eventId": "demo-ended-12",
+      "displayRef": "DEMO-012",
+      "direction": "inbound",
+      "startedAt": "2026-09-04T08:20:00Z",
+      "answeredAt": "2026-09-04T08:20:10Z",
+      "endedAt": "2026-09-04T08:24:00Z",
+      "handled": true,
+      "assignedAgentId": "00000000-0000-4000-8000-000000001001",
+      "recordVersion": 0,
+      "evaluation": null,
+      "draft": null
+    }
+  ],
+  "guidedCallId": "00000000-0000-4000-8000-000000000011",
+  "guidedSubmission": {
+    "catalogVersion": 1,
+    "reason": "dwc_problem",
+    "device": "tuma_classic_comfort",
+    "fault": "descaling_filter",
+    "resolution": "service_requested"
+  }
+}
