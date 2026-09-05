@@ -33,8 +33,8 @@ The files in `contracts/` are **design artifacts for a future integrated service
 
 ## Deployment
 
-The release build creates both compositions. After local engine and browser checks pass, only the contents of `demo/dist/` are published on the `gh-pages` branch. GitHub Pages serves that standalone `index.html` and its build metadata. The API and SQLite database are never deployed to Pages.
+The release build creates both compositions. The active [Actions workflow](../.github/workflows/ci.yml) runs formatting, build, generated-demo freshness, engine/API, and Chromium browser checks. After all checks pass on `main`, the dependent deploy job publishes only the tested contents of `demo/dist/` through GitHub Pages' Actions source. Pull requests run checks without deploying. GitHub Pages serves the standalone `index.html` and its build metadata. The API and SQLite database are never deployed to Pages.
 
-A ready-to-enable [Actions template](ci-workflow.yml.example) can automate checks and deployment when the maintainer has workflow permissions. It is currently a template, not an active CI check. See [Contributing](../CONTRIBUTING.md) for the publishing steps.
+Rebuilt HTML and build metadata must match the committed generated files. This prevents a successful source build from hiding a stale portable artifact. The Pages artifact is produced and tested in the same job, and deployment uses the artifact from that workflow run. See [Contributing](../CONTRIBUTING.md) for publishing steps and the [Actions history](https://github.com/Ademord/dwc-call-manager/actions/workflows/ci.yml) for commit-specific results.
 
 The local API always binds to `127.0.0.1`. Its synthetic role switch is not login. A supported internal pilot needs real identity, access control, ownership, backup/restore procedures, and operational agreement before taking real calls. The [roadmap](../TODO.md) separates these requirements from the demo features already implemented.

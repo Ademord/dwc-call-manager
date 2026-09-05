@@ -10,6 +10,7 @@ A German-language call-center prototype with guided onboarding, synthetic data, 
 
 ![Prototype 0.2](https://img.shields.io/badge/status-prototype_0.2-2b60c4)
 ![Synthetic data](https://img.shields.io/badge/data-synthetic-238b82)
+[![Checks and demo](https://github.com/Ademord/dwc-call-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/Ademord/dwc-call-manager/actions/workflows/ci.yml)
 
 </div>
 
@@ -104,6 +105,6 @@ npx playwright install chromium
 npm run test:ui
 ```
 
-On Windows, browser tests use installed Edge by default. The suite contains **16 engine/API tests and 26 browser tests**, covering persistence, retry behavior, report consistency, CSV, and guided interactions on desktop and mobile viewports. All 42 passed locally for this release. A [GitHub Actions template](docs/ci-workflow.yml.example) installs Chromium on Linux, runs the checks, and deploys only after they pass; it is not enabled in this repository yet.
+On Windows, browser tests use installed Edge by default. The suite contains **16 engine/API tests and 26 browser tests**, covering persistence, retry behavior, report consistency, CSV, and guided interactions on desktop and mobile viewports. All 42 passed locally for this release. The active [GitHub Actions workflow](https://github.com/Ademord/dwc-call-manager/actions/workflows/ci.yml) runs formatting, build, generated-demo freshness, engine/API, and Chromium browser checks on Linux for pull requests and pushes to `main`. Successful `main` checks deploy the tested portable build to GitHub Pages.
 
 Run `npm run screenshots` after building to regenerate the README images from the portable demo. See [Contributing](CONTRIBUTING.md) for the rest of the development workflow.

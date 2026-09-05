@@ -10,7 +10,7 @@
 - [x] Guided call tour with spotlight, dimmed background, pause/resume, speed control, and keyboard support.
 - [x] Hover/focus/tap help and a user-paced report/filter/export walkthrough.
 - [x] Public README screenshots, test commands, and a static GitHub Pages demo.
-- [ ] Enable the included Actions template when workflow permissions are available.
+- [x] Active GitHub Actions checks for formatting, build, generated-demo freshness, 16 engine/API tests, and 26 browser tests, with Pages deployment after successful `main` checks.
 
 ## Before a supported internal pilot
 

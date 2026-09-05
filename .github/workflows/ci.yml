@@ -26,6 +26,8 @@ jobs:
       - run: npm ci
       - run: npm run format:check
       - run: npm run build
+      - name: Verify committed portable demo is current
+        run: git diff --exit-code -- demo/dist/index.html demo/dist/build-info.json
       - run: npm test
       - run: npx playwright install --with-deps chromium
       - run: npm run test:ui

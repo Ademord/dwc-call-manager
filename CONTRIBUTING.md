@@ -8,6 +8,8 @@ Use Node.js 24.16 or newer, then `npm ci` and `npm run dev`. Vite serves the int
 
 Run `npm run format:check`, `npm run build`, `npm test`, and `npm run test:ui` before submitting functional changes. Linux needs `npx playwright install --with-deps chromium`; Windows uses Edge unless `DWC_BROWSER_CHANNEL` is set. Browser tests use their own service on port 4320 and a separate synthetic database under `.data/`.
 
+Commit both generated files in `demo/dist/` whenever rebuilding changes them. CI rebuilds and runs `git diff --exit-code -- demo/dist/index.html demo/dist/build-info.json`, so source changes cannot silently leave the downloadable demo or its hash stale.
+
 ## Keep the demo useful
 
 - Keep all fixtures synthetic and repeatable. Update the independent expected results when deliberately changing a scenario.
@@ -20,8 +22,8 @@ After UI changes, run `npm run screenshots` and inspect the three images in `doc
 
 ## Publishing
 
-The current demo uses GitHub Pages' branch publishing: `gh-pages`, root directory. Build and run the checks before updating that branch with the contents of `demo/dist/` and an empty `.nojekyll` file. Never publish the server's `dist/` directory; that frontend requires the local API.
+GitHub Pages uses **GitHub Actions** as its publishing source. The active [Checks and demo workflow](.github/workflows/ci.yml) runs formatting, build, generated-demo freshness, 16 engine/API tests, and 26 Chromium browser tests on pull requests and pushes to `main`. It uploads browser evidence even if a check fails. Only a successful check job on `main` can deploy the `demo/dist/` artifact; pull requests do not deploy. Never publish the server's `dist/` directory; that frontend requires the local API.
 
-To automate publishing, copy `docs/ci-workflow.yml.example` to `.github/workflows/ci.yml` using a GitHub credential with workflow permission, then change the Pages source to GitHub Actions. The template runs checks on pull requests and deploys the portable build after successful checks on `main`. Until enabled, tests are run locally and Pages' built-in deployment does not run the application's test suite.
+Push the updated source and generated demo files to `main`, then verify both `check` and `deploy` in the [Actions run](https://github.com/Ademord/dwc-call-manager/actions/workflows/ci.yml). The workflow can also be dispatched manually on `main` to repeat checks and deployment without changing files. The old `gh-pages` branch is retained for history and is no longer the publishing source. No deployment credentials are stored in the repository: the deploy job uses GitHub's scoped Pages and OIDC permissions.
 
 A release can attach `demo/dist/index.html` as `dwc-call-manager-demo.html` for offline use. Its hash and size are recorded in `demo/dist/build-info.json`.

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Activated GitHub Actions checks on pull requests and `main`: formatting, build, committed portable-demo freshness, 16 engine/API tests, and 26 Chromium browser tests.
+- Switched GitHub Pages to deploy the tested portable artifact only after successful `main` checks. The v0.2.0 offline release artifact is unchanged.
+
 ## 0.2.0
 
 - Added spotlight guidance, dimmed surrounding areas, anchored step explanations, pause/resume, and three tour speeds.
