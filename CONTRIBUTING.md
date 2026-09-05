@@ -8,7 +8,7 @@ Use Node.js 24.16 or newer, then `npm ci` and `npm run dev`. Vite serves the int
 
 Run `npm run format:check`, `npm run build`, `npm test`, and `npm run test:ui` before submitting functional changes. Linux needs `npx playwright install --with-deps chromium`; Windows uses Edge unless `DWC_BROWSER_CHANNEL` is set. Browser tests use their own service on port 4320 and a separate synthetic database under `.data/`.
 
-Commit both generated files in `demo/dist/` whenever rebuilding changes them. CI rebuilds and runs `git diff --exit-code -- demo/dist/index.html demo/dist/build-info.json`, so source changes cannot silently leave the downloadable demo or its hash stale.
+Commit both generated files in `demo/dist/` whenever rebuilding changes them. CI rebuilds and runs `git diff --exit-code -- demo/dist/index.html demo/dist/build-info.json`, so source changes cannot silently leave the committed portable demo or its hash stale. Existing GitHub release attachments are separate and are not updated by this check or the Pages deployment.
 
 ## Keep the demo useful
 
@@ -26,4 +26,6 @@ GitHub Pages uses **GitHub Actions** as its publishing source. The active [Check
 
 Push the updated source and generated demo files to `main`, then verify both `check` and `deploy` in the [Actions run](https://github.com/Ademord/dwc-call-manager/actions/workflows/ci.yml). The workflow can also be dispatched manually on `main` to repeat checks and deployment without changing files. The old `gh-pages` branch is retained for history and is no longer the publishing source. No deployment credentials are stored in the repository: the deploy job uses GitHub's scoped Pages and OIDC permissions.
 
-A release can attach `demo/dist/index.html` as `dwc-call-manager-demo.html` for offline use. Its hash and size are recorded in `demo/dist/build-info.json`.
+After a changed demo build passes CI, create a new versioned GitHub release targeting that tested `main` commit. Upload `demo/dist/index.html` under the asset filename `dwc-call-manager-demo.html` and attach its matching `demo/dist/build-info.json`. Mark the release as the latest stable release so the README's offline download link points to it. Download the published HTML and verify its SHA-256 and byte size against the attached metadata before announcing the release.
+
+Pages follows successful `main` builds; the offline download follows the latest stable release. Publishing Pages alone does not update the offline download. If an existing release attachment needs a correction, replace the HTML and its matching build-info together and document the correction in that release's notes. The CI activation changes no application code, so the existing v0.2.0 attachments remain unchanged.
